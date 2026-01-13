@@ -513,6 +513,60 @@
         80% { opacity: 1; }
         100% { opacity: 0; transform: translateY(-20px); }
     }
+
+    /* =========================================================
+       ✅ NEW (Uniform styles like Matters + Legal Activity)
+       - outer-shell white box + shadow
+       - inner blue header bar inside the box
+       - remove left consultant box layout gap
+       ========================================================= */
+
+    .layout{
+        display:block;     /* remove 2-column */
+        gap:0;
+    }
+
+    .outer-shell{
+        width:100%;
+        background:#fff;
+        border-radius: 16px;
+        box-shadow: 0 6px 22px rgba(0,0,0,0.08);
+        border: 1px solid #eef0f5;
+        overflow:hidden;
+    }
+
+    .inner-header{
+        background: #0F2D56;
+        color:#fff;
+        padding: 22px 20px;
+        display:flex;
+        align-items:center;
+        justify-content:center;
+        text-align:center;
+    }
+
+    .inner-header h1{
+        margin:0;
+        font-size: 18px;
+        font-weight: 700;
+        letter-spacing: .2px;
+    }
+
+    /* allow your original right-side container to be full-width */
+    .main-area-placeholder{
+        border-radius: 0;
+        padding: 0;
+        min-height: unset;
+        background: transparent;
+    }
+
+    /* tighten the subscription wrapper spacing (keeping your content same) */
+    .subscription-wrapper{
+        margin-top: 0;
+        border-radius: 0;
+        box-shadow: none;
+    }
+
 </style>
 </head>
 <body>
@@ -523,65 +577,63 @@
 <!-- DASHBOARD -->
 <div class="layout" id="dashboard">
 
-    <div class="consultant-box">
-        <h3>Your Principal Consultant</h3>
-        <img src="https://d34hmiuaex7c0.cloudfront.net/5052/uploads/profile/staffuser/5054/1665766283321.jpeg">
-        <div class="consultant-name">George Brunt</div>
-        <button class="contact-btn" onclick="openModal()">Contact Me</button>
-    </div>
+    <!-- ✅ NEW OUTER SHELL + HEADER (uniform w/ other pages) -->
+    <div class="outer-shell">
+        <div class="inner-header">
+            <h1>Subscription</h1>
+        </div>
 
-    <!-- RIGHT SIDE CONTENT AREA -->
-    <div class="main-area-placeholder">
+        <!-- RIGHT SIDE CONTENT AREA -->
+        <div class="main-area-placeholder">
 
-        <a href="#" class="request-btn"><i class="fa fa-plus"></i> Request New Matter</a>
+            <!-- ✅ REMOVED: Request New Matter button -->
 
-        <div class="subscription-wrapper">
+            <div class="subscription-wrapper">
 
-            <div class="sub-header-row">
-                <div class="sub-header">Subscription</div>
-            </div>
 
-            <div class="free-trial-badge">FREE TRIAL ACTIVE</div>
+                <div class="free-trial-badge">FREE TRIAL ACTIVE</div>
 
-            <div class="upgrade-box">
-                <div>
-                    <h3>You’re currently on a Free Trial</h3>
-                    <p>Upgrade anytime to unlock monthly service hours, legal discounts, and full support benefits.</p>
-                </div>
-                <a class="upgrade-btn" onclick="openUpgradePopup()">Upgrade Plan</a>
-            </div>
-
-            <div class="subscription-stats">
-                <div class="stat-box">
-                    <h4>Free Monthly Service Hours</h4>
-                    <div class="value">0</div>
+                <div class="upgrade-box">
+                    <div>
+                        <h3>You’re currently on a Free Trial</h3>
+                        <p>Upgrade anytime to unlock monthly service hours, legal discounts, and full support benefits.</p>
+                    </div>
+                    <a class="upgrade-btn" onclick="openUpgradePopup()">Upgrade Plan</a>
                 </div>
 
-                <div class="stat-box">
-                    <h4>Additional Legal Discount Rate</h4>
-                    <div class="value">0%</div>
-                </div>
-            </div>
+                <div class="subscription-stats">
+                    <div class="stat-box">
+                        <h4>Free Monthly Service Hours</h4>
+                        <div class="value">0</div>
+                    </div>
 
-            <table class="subscription-table">
-                <thead>
-                    <tr>
-                        <th>Subscription #</th>
-                        <th>Started Date</th>
-                        <th>Renewal Date</th>
-                        <th>Standing</th>
-                        <th>Status</th>
-                        <th>Recurring Price</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr>
-                        <td colspan="6" class="empty-row">No active paid subscription — you are currently on a Free Trial.</td>
-                    </tr>
-                </tbody>
-            </table>
+                    <div class="stat-box">
+                        <h4>Additional Legal Discount Rate</h4>
+                        <div class="value">0%</div>
+                    </div>
+                </div>
+
+                <table class="subscription-table">
+                    <thead>
+                        <tr>
+                            <th>Subscription #</th>
+                            <th>Started Date</th>
+                            <th>Renewal Date</th>
+                            <th>Standing</th>
+                            <th>Status</th>
+                            <th>Recurring Price</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td colspan="6" class="empty-row">No active paid subscription — you are currently on a Free Trial.</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
         </div>
     </div>
+
 </div>
 
 <!-- CONTACT MODAL -->

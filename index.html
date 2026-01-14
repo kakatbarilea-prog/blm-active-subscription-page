@@ -253,8 +253,7 @@
         max-height: 85vh;
         position: relative;
         overflow-y: auto;
-}
-
+    }
 
     .close-x-upgrade {
         position: absolute;
@@ -314,8 +313,7 @@
         transform: scale(1.03);
         box-shadow: 0 10px 28px rgba(0,0,0,0.15);
         margin-top: 10px;
-}
-
+    }
 
     .popular::before {
         content: "Most Popular";
@@ -516,13 +514,10 @@
 
     /* =========================================================
        ✅ NEW (Uniform styles like Matters + Legal Activity)
-       - outer-shell white box + shadow
-       - inner blue header bar inside the box
-       - remove left consultant box layout gap
        ========================================================= */
 
     .layout{
-        display:block;     /* remove 2-column */
+        display:block;
         gap:0;
     }
 
@@ -552,7 +547,6 @@
         letter-spacing: .2px;
     }
 
-    /* allow your original right-side container to be full-width */
     .main-area-placeholder{
         border-radius: 0;
         padding: 0;
@@ -560,11 +554,162 @@
         background: transparent;
     }
 
-    /* tighten the subscription wrapper spacing (keeping your content same) */
     .subscription-wrapper{
         margin-top: 0;
         border-radius: 0;
         box-shadow: none;
+    }
+
+    /* =========================================================
+       ✅ NEW: FRIENDLY SAVINGS SNAPSHOT (Paid + Trial)
+       ========================================================= */
+
+    .savings-snapshot{
+        border:1px solid #e8ebf3;
+        border-radius: 14px;
+        padding: 18px 18px 16px 18px;
+        background: linear-gradient(180deg, #F7FAFF 0%, #FFFFFF 85%);
+        margin-bottom: 18px;
+        position: relative;
+        overflow:hidden;
+    }
+
+    .savings-top{
+        display:flex;
+        align-items:flex-start;
+        justify-content:space-between;
+        gap:18px;
+    }
+
+    .savings-title{
+        font-size: 16px;
+        font-weight: 800;
+        color:#0F2D56;
+        margin:0 0 6px 0;
+        display:flex;
+        align-items:center;
+        gap:8px;
+    }
+
+    .savings-sub{
+        margin:0;
+        font-size: 13px;
+        color:#4f5665;
+        line-height:1.45;
+        max-width: 640px;
+    }
+
+    .savings-grid{
+        display:flex;
+        gap:14px;
+        margin-top: 14px;
+        flex-wrap:wrap;
+    }
+
+    .savings-card{
+        flex:1;
+        min-width: 180px;
+        background:#fff;
+        border:1px solid #e8ebf3;
+        border-radius: 12px;
+        padding: 12px 12px;
+        box-shadow: 0 2px 8px rgba(0,0,0,0.04);
+        position: relative;
+    }
+
+    .savings-card .label{
+        font-size: 12px;
+        color:#6a7380;
+        font-weight: 700;
+        display:flex;
+        align-items:center;
+        gap:8px;
+    }
+
+    .savings-card .metric{
+        margin-top: 6px;
+        font-size: 26px;
+        font-weight: 900;
+        color:#0F2D56;
+        letter-spacing: .2px;
+    }
+
+    .savings-card .hint{
+        margin-top: 5px;
+        font-size: 12px;
+        color:#6a7380;
+    }
+
+    .savings-happy-bar{
+        margin-top: 14px;
+        border: 1px solid rgba(185,128,0,0.35);
+        background: rgba(185,128,0,0.08);
+        border-radius: 12px;
+        padding: 12px 12px;
+        display:flex;
+        align-items:flex-start;
+        gap:10px;
+        color:#3d3f44;
+        font-size: 13px;
+        line-height:1.45;
+    }
+
+    .savings-happy-bar i{
+        color:#B98000;
+        font-size: 16px;
+        margin-top:2px;
+    }
+
+    .soft-illustration{
+        width: 170px;
+        height: 120px;
+        position: relative;
+        flex-shrink:0;
+        margin-top: 0;
+    }
+
+    .blob{
+        position:absolute;
+        inset:0;
+        border-radius: 999px;
+        background: radial-gradient(circle at 30% 30%, rgba(15,45,86,0.14), rgba(15,45,86,0.05));
+        transform: rotate(-8deg);
+        filter: blur(0px);
+    }
+
+    .blob2{
+        position:absolute;
+        width:110px;
+        height:110px;
+        border-radius: 999px;
+        right:-28px;
+        top:18px;
+        background: radial-gradient(circle at 40% 40%, rgba(185,128,0,0.18), rgba(185,128,0,0.06));
+        transform: rotate(10deg);
+    }
+
+    .mini-icons{
+        position:absolute;
+        inset:0;
+        display:flex;
+        align-items:center;
+        justify-content:center;
+        gap:14px;
+        color:#0F2D56;
+        opacity:0.85;
+    }
+
+    .mini-icons span{
+        width:40px;
+        height:40px;
+        background:#fff;
+        border:1px solid #e8ebf3;
+        border-radius: 14px;
+        box-shadow: 0 2px 10px rgba(0,0,0,0.04);
+        display:flex;
+        align-items:center;
+        justify-content:center;
+        font-size: 16px;
     }
 
 </style>
@@ -577,20 +722,63 @@
 <!-- DASHBOARD -->
 <div class="layout" id="dashboard">
 
-    <!-- ✅ NEW OUTER SHELL + HEADER (uniform w/ other pages) -->
     <div class="outer-shell">
         <div class="inner-header">
             <h1>Subscription</h1>
         </div>
 
-        <!-- RIGHT SIDE CONTENT AREA -->
         <div class="main-area-placeholder">
-
-            <!-- ✅ REMOVED: Request New Matter button -->
 
             <div class="subscription-wrapper">
 
+                <!-- ✅ NEW: FRIENDLY SAVINGS SNAPSHOT (works for BOTH trial + paid) -->
+                <div class="savings-snapshot" id="savingsSnapshot">
+                    <div class="savings-top">
+                        <div>
+                            <div class="savings-title" id="savingsTitle">
+                                <i class="fa-solid fa-face-smile-beam"></i>
+                                Savings Snapshot
+                            </div>
+                            <p class="savings-sub" id="savingsSubtitle">
+                                You’re building a stronger legal foundation — with less admin time and fewer expensive surprises.
+                            </p>
+                        </div>
 
+
+                    </div>
+
+                    <div class="savings-grid">
+                        <div class="savings-card">
+                            <div class="label"><i class="fa-regular fa-clock"></i> Hours saved (est.)</div>
+                            <div class="metric" id="metricHours">12.4</div>
+                            <div class="hint">Since account start</div>
+                        </div>
+
+                        <div class="savings-card">
+                            <div class="label"><i class="fa-solid fa-piggy-bank"></i> Estimated $ avoided</div>
+                            <div class="metric" id="metricMoney">$1,860</div>
+                            <div class="hint">Compared to typical legal admin cost</div>
+                        </div>
+
+                        <div class="savings-card">
+                            <div class="label"><i class="fa-solid fa-shield-halved"></i> Protection days</div>
+                            <div class="metric" id="metricProtection">48</div>
+                            <div class="hint">Your coverage progress</div>
+                        </div>
+                    </div>
+
+                    <div class="savings-happy-bar" id="savingsHappyBar">
+                        <i class="fa-solid fa-wand-magic-sparkles"></i>
+                        <div>
+                            <strong id="happyStrong">Nice work.</strong>
+                            <span id="happyCopy">
+                                Every document uploaded and milestone completed reduces risk — and creates leverage for faster legal action later.
+                            </span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- EXISTING SECTION (you said don't mind this; will be removed for paid users later) -->
                 <div class="free-trial-badge">FREE TRIAL ACTIVE</div>
 
                 <div class="upgrade-box">
@@ -659,7 +847,6 @@
         </div>
     </div>
 </div>
-
 
 <!-- ========================================================================== -->
 <!-- PRICING POPUP (FULLY MERGED) -->
@@ -759,6 +946,35 @@
 </div>
 
 <script>
+/* =========================================================
+   ✅ NEW: Paid vs Trial friendly switcher (safe)
+   - Later you can set this based on backend
+   ========================================================= */
+(function(){
+    // Set this later from backend:
+    // true = FREE TRIAL, false = PAID SUBSCRIPTION
+    var isTrial = true;
+
+    var title = document.getElementById("savingsTitle");
+    var sub = document.getElementById("savingsSubtitle");
+    var strong = document.getElementById("happyStrong");
+    var copy = document.getElementById("happyCopy");
+
+    if(!title || !sub || !strong || !copy) return;
+
+    if(isTrial){
+        title.innerHTML = '<i class="fa-solid fa-face-smile-beam"></i> Savings Snapshot';
+        sub.innerText = "You’re building a stronger legal foundation — with less admin time and fewer expensive surprises.";
+        strong.innerText = "Nice work.";
+        copy.innerText = "Keep going — upgrading unlocks monthly service hours and discounts so you can move faster when you need support.";
+    }else{
+        title.innerHTML = '<i class="fa-solid fa-face-smile-beam"></i> Plan Value Snapshot';
+        sub.innerText = "Your subscription is actively reducing legal admin and improving response speed for matters.";
+        strong.innerText = "You’re getting real value.";
+        copy.innerText = "This dashboard reflects your time savings and service leverage — so you can see your plan paying for itself.";
+    }
+})();
+
 /* Contact Modal */
 function openModal() {
     document.getElementById("modalOverlay").style.display = "flex";

@@ -711,6 +711,127 @@
         justify-content:center;
         font-size: 16px;
     }
+/* =========================================================
+   INVOICE PANELS (50/50)
+========================================================= */
+
+.invoice-panels{
+    display:flex;
+    gap:24px;
+    margin-top:30px;
+    margin-bottom:30px;
+}
+
+.invoice-panel{
+    width:50%;
+    background:#ffffff;
+    border:1px solid #e8ebf3;
+    border-radius:14px;
+    padding:18px 18px 14px 18px;
+    box-shadow:0 2px 10px rgba(0,0,0,0.05);
+}
+
+.invoice-panel-header{
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    margin-bottom:14px;
+}
+
+.invoice-panel-title{
+    font-size:16px;
+    font-weight:800;
+    color:#0F2D56;
+}
+
+.invoice-actions{
+    display:flex;
+    gap:10px;
+}
+
+.invoice-action-btn{
+    font-size:12px;
+    padding:6px 12px;
+    border-radius:8px;
+    border:1px solid #0F2D56;
+    background:#fff;
+    color:#0F2D56;
+    cursor:pointer;
+    font-weight:600;
+}
+
+.invoice-action-btn.primary{
+    background:#0F2D56;
+    color:#fff;
+}
+
+.invoice-action-btn:hover{
+    background:#0c2343;
+    color:#fff;
+}
+
+.invoice-filters{
+    display:flex;
+    gap:10px;
+    margin-bottom:12px;
+}
+
+.invoice-filter{
+    font-size:12px;
+    padding:5px 12px;
+    border-radius:20px;
+    border:1px solid #d9dce4;
+    background:#f7f7fa;
+    cursor:pointer;
+    color:#0F2D56;
+    font-weight:600;
+}
+
+.invoice-filter.active{
+    background:#0F2D56;
+    color:#fff;
+    border-color:#0F2D56;
+}
+
+.invoice-table{
+    width:100%;
+    border-collapse:collapse;
+}
+
+.invoice-table th{
+    text-align:left;
+    font-size:12px;
+    padding:8px 4px;
+    border-bottom:1px solid #ddd;
+    color:#0F2D56;
+}
+
+.invoice-table td{
+    font-size:13px;
+    padding:10px 4px;
+    border-bottom:1px solid #eee;
+}
+
+.invoice-status{
+    font-weight:700;
+}
+
+.status-paid{ color:#22c55e; }
+.status-unpaid{ color:#f59e0b; }
+.status-overdue{ color:#ef4444; }
+
+.view-link{
+    color:#0F2D56;
+    font-weight:700;
+    cursor:pointer;
+    text-decoration:underline;
+}
+
+.payment-hint{
+    margin-top:10px;
+    font-size:12px;
+    color:#6a7380;
+}
 
 </style>
 </head>
@@ -788,16 +909,145 @@
                     </div>
                     <a class="upgrade-btn" onclick="openUpgradePopup()">Upgrade Plan</a>
                 </div>
+<!-- =========================================================
+     INVOICE PANELS
+========================================================= -->
+
+<div class="invoice-panels">
+
+    <!-- LEFT: Business Legal Management Subscription Invoices -->
+    <div class="invoice-panel">
+
+        <div class="invoice-panel-header">
+            <div class="invoice-panel-title">
+                Business Legal Management Subscription Invoices
+            </div>
+
+            <div class="invoice-actions">
+                <button class="invoice-action-btn">
+                    Update Payment Methods
+                </button>
+
+                <button class="invoice-action-btn primary">
+                    Pay Now
+                </button>
+            </div>
+        </div>
+
+        <div class="invoice-filters">
+            <div class="invoice-filter active">All</div>
+            <div class="invoice-filter">Paid</div>
+            <div class="invoice-filter">Unpaid</div>
+            <div class="invoice-filter">Overdue</div>
+        </div>
+
+        <table class="invoice-table">
+            <thead>
+                <tr>
+                    <th>Invoice #</th>
+                    <th>Created Date</th>
+                    <th>Amount</th>
+                    <th>Status</th>
+                    <th></th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>302645</td>
+                    <td>01/12/26</td>
+                    <td>$249.00</td>
+                    <td class="invoice-status status-unpaid">Unpaid</td>
+                    <td><span class="view-link">View Details</span></td>
+                </tr>
+
+                <tr>
+                    <td>302645</td>
+                    <td>12/12/25</td>
+                    <td>$249.00</td>
+                    <td class="invoice-status status-paid">Paid</td>
+                    <td><span class="view-link">View Details</span></td>
+                </tr>
+            </tbody>
+        </table>
+
+        <div class="payment-hint">
+            Accepted payment methods: Credit Card • Debit Card • ACH Bank Transfer
+        </div>
+
+    </div>
+
+    <!-- RIGHT: Business Law Group Monthly Overage Invoices -->
+    <div class="invoice-panel">
+
+        <div class="invoice-panel-header">
+            <div class="invoice-panel-title">
+                Business Law Group Monthly Overage Invoices
+            </div>
+
+            <div class="invoice-actions">
+                <button class="invoice-action-btn">
+                    Update Payment Methods
+                </button>
+
+                <button class="invoice-action-btn primary">
+                    Pay Now
+                </button>
+            </div>
+        </div>
+
+        <div class="invoice-filters">
+            <div class="invoice-filter active">All</div>
+            <div class="invoice-filter">Paid</div>
+            <div class="invoice-filter">Unpaid</div>
+            <div class="invoice-filter">Overdue</div>
+        </div>
+
+        <table class="invoice-table">
+            <thead>
+                <tr>
+                    <th>Invoice #</th>
+                    <th>Created Date</th>
+                    <th>Amount</th>
+                    <th>Status</th>
+                    <th></th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>302645</td>
+                    <td>01/08/26</td>
+                    <td>$180.00</td>
+                    <td class="invoice-status status-overdue">Overdue</td>
+                    <td><span class="view-link">View Details</span></td>
+                </tr>
+
+                <tr>
+                    <td>302645</td>
+                    <td>12/03/25</td>
+                    <td>$95.00</td>
+                    <td class="invoice-status status-paid">Paid</td>
+                    <td><span class="view-link">View Details</span></td>
+                </tr>
+            </tbody>
+        </table>
+
+        <div class="payment-hint">
+            Accepted payment methods: Credit Card • Debit Card • ACH Bank Transfer
+        </div>
+
+    </div>
+
+</div>
 
                 <div class="subscription-stats">
                     <div class="stat-box">
                         <h4>Free Monthly Service Hours</h4>
-                        <div class="value">0</div>
+                        <div class="value">18</div>
                     </div>
 
                     <div class="stat-box">
                         <h4>Additional Legal Discount Rate</h4>
-                        <div class="value">0%</div>
+                        <div class="value">50%</div>
                     </div>
                 </div>
 
@@ -814,7 +1064,13 @@
                     </thead>
                     <tbody>
                         <tr>
-                            <td colspan="6" class="empty-row">No active paid subscription — you are currently on a Free Trial.</td>
+                            <td>261555</td>
+<td>07/10/2024</td>
+<td>02/21/26</td>
+<td>In Good Standing</td>
+<td>Active</td>
+<td>$6,500.00</td>
+
                         </tr>
                     </tbody>
                 </table>

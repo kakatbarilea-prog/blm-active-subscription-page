@@ -530,21 +530,21 @@
         overflow:hidden;
     }
 
-.inner-header{
-
-    color: #0F2D56;   
-    padding-top: 22px;
-    display:flex;
-    align-items:center;
-    justify-content:center;
-    text-align:center;
-}
-
+    .inner-header{
+        background: #0F2D56;
+        color:#fff;
+        padding: 22px 20px;
+        display:flex;
+        align-items:center;
+        justify-content:center;
+        text-align:center;
+    }
 
     .inner-header h1{
         margin:0;
-        font-size: 22px;
+        font-size: 18px;
         font-weight: 700;
+        letter-spacing: .2px;
     }
 
     .main-area-placeholder{
@@ -832,109 +832,6 @@
     font-size:12px;
     color:#6a7380;
 }
-/* =========================================================
-   SUBSCRIPTION DETAIL GRID
-========================================================= */
-
-.subscription-detail-grid{
-    display:grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap:18px;
-    margin-top:10px;
-}
-
-.sub-detail-card{
-    background:#ffffff;
-    border:1px solid #e8ebf3;
-    border-radius:12px;
-    padding:16px 16px;
-    box-shadow:0 2px 8px rgba(0,0,0,0.04);
-}
-
-.sub-detail-card .label{
-    font-size:12px;
-    color:#6a7380;
-    font-weight:700;
-    margin-bottom:6px;
-}
-
-.sub-detail-card .value{
-    font-size:18px;
-    font-weight:800;
-    color:#0F2D56;
-}
-
-.sub-detail-card.highlight{
-    background:linear-gradient(180deg,#F7FAFF 0%, #FFFFFF 85%);
-    border-color:#B98000;
-}
-
-.status-active{
-    color:#22c55e;
-}
-/* =========================================================
-   PLAN STRIP (TOP SUBSCRIPTION IDENTITY ROW)
-========================================================= */
-
-.plan-strip{
-    display:flex;
-    align-items:center;
-    justify-content:space-between;
-    gap:24px;
-    padding:18px 22px;
-    border:1px solid #e8ebf3;
-    border-radius:14px;
-    background:linear-gradient(180deg,#F7FAFF 0%, #FFFFFF 85%);
-    margin-bottom:24px;
-}
-
-.plan-left{
-    display:flex;
-    align-items:center;
-    gap:14px;
-}
-
-.plan-badge{
-    background:#0F2D56;
-    color:#fff;
-    padding:8px 14px;
-    border-radius:10px;
-    font-weight:800;
-    font-size:14px;
-    letter-spacing:.2px;
-}
-
-.plan-meta{
-    display:flex;
-    gap:22px;
-    flex-wrap:wrap;
-}
-
-.plan-item{
-    font-size:13px;
-    color:#4f5665;
-}
-
-.plan-item strong{
-    display:block;
-    color:#0F2D56;
-    font-size:15px;
-}
-
-.plan-right{
-    text-align:right;
-}
-
-.plan-price{
-    font-size:26px;
-    font-weight:900;
-    color:#B98000;
-}
-
-.plan-cycle{
-    font-size:12px;
-    color:#6a7380;
-}
 
 </style>
 </head>
@@ -954,55 +851,6 @@
         <div class="main-area-placeholder">
 
             <div class="subscription-wrapper">
-<!-- =========================================================
-     PLAN STRIP (PRIMARY SUBSCRIPTION IDENTITY)
-========================================================= -->
-
-<div class="plan-strip">
-
-    <div class="plan-left">
-
-        <div class="plan-badge">
-            Active Plan
-        </div>
-
-        <div class="plan-meta">
-
-            <div class="plan-item">
-                Subscription #
-                <strong>261555</strong>
-            </div>
-
-            <div class="plan-item">
-                Standing
-                <strong>In Good Standing</strong>
-            </div>
-
-            <div class="plan-item">
-                Started
-                <strong>07/10/2024</strong>
-            </div>
-
-            <div class="plan-item">
-                Renews
-                <strong>02/21/26</strong>
-            </div>
-
-            <div class="plan-item">
-                Status
-                <strong class="status-active">Active</strong>
-            </div>
-
-        </div>
-
-    </div>
-
-    <div class="plan-right">
-        <div class="plan-price">$6,500.00</div>
-        <div class="plan-cycle">Recurring</div>
-    </div>
-
-</div>
 
                 <!-- ✅ NEW: FRIENDLY SAVINGS SNAPSHOT (works for BOTH trial + paid) -->
                 <div class="savings-snapshot" id="savingsSnapshot">
@@ -1050,17 +898,7 @@
                         </div>
                     </div>
                 </div>
-<div class="subscription-stats">
-                    <div class="stat-box">
-                        <h4>Free Monthly Service Hours</h4>
-                        <div class="value">18</div>
-                    </div>
 
-                    <div class="stat-box">
-                        <h4>Additional Legal Discount Rate</h4>
-                        <div class="value">50%</div>
-                    </div>
-                </div>
                 <!-- EXISTING SECTION (you said don't mind this; will be removed for paid users later) -->
                 <div class="free-trial-badge">FREE TRIAL ACTIVE</div>
 
@@ -1201,46 +1039,41 @@
 
 </div>
 
-                
+                <div class="subscription-stats">
+                    <div class="stat-box">
+                        <h4>Free Monthly Service Hours</h4>
+                        <div class="value">18</div>
+                    </div>
 
-                <!-- =========================================================
-     SUBSCRIPTION DETAILS (CARD GRID)
-========================================================= -->
+                    <div class="stat-box">
+                        <h4>Additional Legal Discount Rate</h4>
+                        <div class="value">50%</div>
+                    </div>
+                </div>
 
-<div class="subscription-detail-grid">
+                <table class="subscription-table">
+                    <thead>
+                        <tr>
+                            <th>Subscription #</th>
+                            <th>Started Date</th>
+                            <th>Renewal Date</th>
+                            <th>Standing</th>
+                            <th>Status</th>
+                            <th>Recurring Price</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>261555</td>
+<td>07/10/2024</td>
+<td>02/21/26</td>
+<td>In Good Standing</td>
+<td>Active</td>
+<td>$6,500.00</td>
 
-    <div class="sub-detail-card">
-        <div class="label">Subscription #</div>
-        <div class="value">261555</div>
-    </div>
-
-    <div class="sub-detail-card">
-        <div class="label">Status</div>
-        <div class="value status-active">Active</div>
-    </div>
-
-    <div class="sub-detail-card">
-        <div class="label">Standing</div>
-        <div class="value">In Good Standing</div>
-    </div>
-
-    <div class="sub-detail-card">
-        <div class="label">Started Date</div>
-        <div class="value">07/10/2024</div>
-    </div>
-
-    <div class="sub-detail-card">
-        <div class="label">Renewal Date</div>
-        <div class="value">02/21/26</div>
-    </div>
-
-    <div class="sub-detail-card highlight">
-        <div class="label">Recurring Price</div>
-        <div class="value">$6,500.00</div>
-    </div>
-
-</div>
-
+                        </tr>
+                    </tbody>
+                </table>
             </div>
         </div>
     </div>
